@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html {
+    /* color: #000000; */
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    background-color: rgb(76, 72, 72);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 50rem;
+    width: 120rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border-radius: 2%;
+    background-color: rgba(35, 81, 122, 0.499);
+    box-shadow: 0px 0px 70px 0px rgba(2, 2, 1, 0.977);
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    -ms-border-radius: 2%;
+    -o-border-radius: 2%;
+    border: 3px solid rgba(209, 211, 45, 0.896);
+    /* z-index: 1; */
+    position: relative;
+
+}
+
+.timeHolder {
+    margin-top: 10rem;
+}
+.clockHolder::before {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 10px;
+    background-color: rgba(209, 211, 45, 0.896);
+    bottom: -35px;
+    left: -5.5%;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}
+
+.clockHolder::after {
+    content: " ";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 80%;
+    height: 15px;
+    background-color: rgba(209, 211, 45, 0.896);
+    transform: translate(-50%, 0);
+    border-radius: 2px 2px 4px 4px;
+    -webkit-border-radius: 2px 2px 4px 4px;
+    -moz-border-radius: 2px 2px 4px 4px;
+    -ms-border-radius: 2px 2px 4px 4px;
+    -o-border-radius: 2px 2px 4px 4px;
+}
+
+#clock {
+    margin-top: 12.5rem;
+    font-size: 15rem;
+    font-family: cursive;
+    font-weight: 400;
+    color: rgba(89, 230, 227, 0.853);
+}
+
+.mainDiv {
+    width: 100%;
+    text-align: center;
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+   #clock {
+    margin-left: -2rem;
+        font-size: 11rem;
+        
+
+    }
+}
