@@ -601,3 +601,21 @@ footer {
 /* End footer Section */
 
 
+/* Contact Section
+
+::placeholder {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+
+.btn-submit {
+  font-size: 1.7rem;
+  border: none;
+  text-transform: capitalize;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 0.1rem solid var(--btn-hover-bg-color);
+}
+

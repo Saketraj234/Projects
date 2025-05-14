@@ -44,16 +44,24 @@ let city = "ambala" ;
 
 // search functionality
 
-// citySearch.addEventListener("submit" , (e) =>{
+//Sirf problem yeha pe hai start here
+
+// citySearch.addEventListener("submit", (e) => {
 //  e.preventDefault();
+
+
 //  let cityName = document.querySelector(".city_name");
 //  console.log(cityName.value);
 //  city = cityName.value;
+
+
 //  getWeatherData();
-//  cityName.value= ""; 
+
+
+//  cityName.value = ""; 
 // });
 
-
+//end
 
 
 //define the getWeather function here
