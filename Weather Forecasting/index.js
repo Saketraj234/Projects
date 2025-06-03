@@ -41,44 +41,35 @@ const getDateTime = (dt) => {
   return formatter.format(curDate);
 };
 let city = "ambala" ;
-
 // search functionality
 
-//Sirf problem yeha pe hai start here
-
-// citySearch.addEventListener("submit", (e) => {
-//  e.preventDefault();
-
-
-//  let cityName = document.querySelector(".city_name");
-//  console.log(cityName.value);
-//  city = cityName.value;
-
-
-//  getWeatherData();
+citySearch.addEventListener("submit" , (e) =>{
+ e.preventDefault();
+ let cityName = document.querySelector(".city_name");
+ console.log(cityName.value);
+ city = cityName.value;
+ getWeatherData();
+ cityName.value= "";
+})
 
 
-//  cityName.value = ""; 
-// });
-
-//end
 
 
 //define the getWeather function here
 
 const getWeatherData = async () => {
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=3e5333c6f03a5164be8d79709ac0b0d8`;
-  // const weatherUrl = https://api.openweathermap.org/data/2.5/weather?q=pune&APPID=a0b06669a793506ae54060f7df8a5fb6;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=92e739023f5ecf12daee937a949a58ac`;
+  // const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=pune&APPID=a0b06669a793506ae54060f7df8a5fb6`;
   try {
     const res = await fetch(weatherUrl);
     const data = await res.json();
     console.log(data);
     const {main , name , weather , wind , sys ,dt } = data;
-    cityName.innerHTML = `${name} ,${getCountryName(sys.country)};`
+    cityName.innerHTML = `${name} ,${getCountryName(sys.country)}`;
     dateTime.innerHTML = getDateTime(dt);
 
     w_forecast.innerHTML = weather[0].main;
-    w_icon.innerHTML =`<img src ="http://openweathermap.org/img/wn/${weather[0].icon}@4x.png"/>;`
+    w_icon.innerHTML = `<img src="http://openweathermap.org/img/wn/${weather[0].icon}@4x.png"/>`;
     // http://openweathermap.org/img/wn/${weather[0].icon}@4x.png
 
     let temperature =main.temp;
@@ -89,7 +80,7 @@ const getWeatherData = async () => {
     w_maxTem.innerHTML = `Max: ${(main.temp_max - 273).toFixed(1)}&#176`;
     
     w_feelsLike.innerHTML = `${(main.feels_like - 273).toFixed(2)}&#176`;
-    w_humidity.innerHTML = `${main.humidity}%`;
+    w_humidity.innerHTML = ` ${main.humidity}%`;
     w_wind.innerHTML = `${wind.speed}m/s`;
     w_pressure.innerHTML = `${main.pressure} hPa`;
   } catch (error) { 
