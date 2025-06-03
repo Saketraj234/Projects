@@ -165,6 +165,16 @@ input::placeholder {
   margin-top: -3rem;
 }
 
+.main-footer{
+  color:#38fdf7;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top:-2.5rem;
+}
+strong{
+  color:#ffd900
+}
 
 /***** Media queries Section *****/
 
