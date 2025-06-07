@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <header class="section-navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <!-- <h1 class="logo">Saket Raj</h1> -->
+            <img
+              src="Images/SR.png"
+              alt="my saket raj logo"
+              width="20%"
+              height="auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+          <input type="checkbox" id="toggler" />
+          <label for="toggler"><i class="fa-solid fa-bars"></i></label>
+          <div class="menu">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#skills">Skills</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#achievements">Achievements</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End navbar section -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <img src="Images/2.jpg" alt="Saket Raj" class="profile-img" />
+      </div>
+      <div class="hero-right">
+        <h1>👋Hello, I'm <span class="highlight">Saket Raj</span></h1>
+        <p class="profession">
+          I’m a passionate Full-Stack Developer skilled in
+Node.js | React | Express | MongoDB
+        </p>
+        <p class="bio">
+        I specialize in building fast, modern, and responsive web applications that deliver seamless user experiences. <br>With a strong eye for design and a love for clean code, I turn complex problems into elegant digital solutions. <br>Let’s build something great together.
+        </p>
+        <div class="buttons">
+          <a href="#social-icons" class="btn-primary">Let's Connect</a>
+          <a href="pdf/Resume Web Developer.pdf" download class="btn-secondary"
+            >Download Resume</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+    <section class="projects" id="projects">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <img src="Images/Travel Hub.png" alt="Travel Agency" />
+          <h3>Travel Hub</h3>
+          <p>
+            Full travel booking website with flights, hotels, trains, cabs, user
+            login, and payments.
+          </p>
+          <a href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+          <img src="Images/ToDo.jpg" alt="ToDo App" />
+          <h3>TODO App</h3>
+          <p>
+            Simple to-do list one click to set reminder and delete
+            <!-- A full-stack TODO app with user auth, CRUD functionality using
+            Node.js and MongoDB. -->
+          </p>
+          <a
+            href="https://benevolent-dragon-4b742f.netlify.app/"
+            target="_blank"
+            >View Project</a
+          >
+        </div>
+        <div class="project-card">
+          <img src="Images/Portfolio.png" alt="Portfolio Website" />
+          <h3>Portfolio Website</h3>
+          <p>
+            This responsive personal portfolio with animations and theme-based
+            design.
+          </p>
+          <a href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+          <img src="Images/BG.png" alt="Background Gradient" />
+          <h3>Background Gradient</h3>
+          <p>You will change by one click</p>
+          <a href="https://backgroundgradientmaker.netlify.app/" target="_blank"
+            >View Project</a
+          >
+        </div>
+        <div class="project-card">
+          <img src="Images/Weather Forecast.jpg" alt="Weather Forecast" />
+          <h3>Weather Forecasting</h3>
+          <p>You will check here weather what are today</p>
+          <a href="https://weather-forecast234.netlify.app/" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+          <img src="Images/Digital Clock.jpg" alt="Digital Clock" />
+          <h3>Digital Clock</h3>
+          <p>Digitally Clock to see your time</p>
+          <a
+            href="https://symphonious-speculoos-e27265.netlify.app/"
+            target="_blank"
+            >View Project</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <h2 class="section-title underline-style">My Skills</h2>
+      <div class="skills-container">
+        <div class="skill-item">
+          <img src="Images/html.png" alt="Html" />
+          <h3>HTML5</h3>
+        </div>
+        <div class="skill-item">
+          <img src="Images/css.png" alt="Css" />
+          <h3>CSS3</h3>
+          <!-- <h4>Intermediate</h4> -->
+        </div>
+        <div class="skill-item">
+          <img src="Images/js.png" alt="Js" />
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-item">
+          <img src="Images/node.js.png" alt="Node.js" />
+          <h3>Node.js</h3>
+        </div>
+        <div class="skill-item">
+          <img src="Images/express.js.png" alt="Express.js" />
+          <h3>Express</h3>
+        </div>
+        <div class="skill-item">
+          <img src="Images/mongodb.png" alt="Mongo Db" />
+          <h3>MongoDB</h3>
+        </div>
+        <div class="skill-item">
+          <img src="Images/react.png" alt="React" />
+          <h3>React</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements-section">
+      <h2 class="section-title">Achievements</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <img src="images/1st ADCA Course.jpg" alt="ADCA Certificate 1" />
+          <p>Certificate of ADCA Course</p>
+        </div>
+        <div class="achievement-card">
+          <img
+            src="images/2nd Certificate of Independece Day.jpg"
+            alt="Certificate 2"
+          />
+          <p>Independence Day Quiz Completion Certificate @Alpha Intern</p>
+        </div>
+        <div class="achievement-card">
+          <img src="images/5th Certificate.jpg" alt="With Yogi Dinesh Jindal" />
+          <p>Role of Volunteer @Alpha Intern</p>
+        </div>
+        <div class="achievement-card">
+          <img
+            src="images/Alpha_Intern_Biggest_tech_fest_of_year2__2k25.jpg"
+            alt="Alpha Tech Fest 2k25"
+          />
+          <p>Participated in Tech Fest 2k25 As a Volunteer @Alpha Intern</p>
+        </div>
+        <div class="achievement-card">
+          <img
+            src="images/5th Click with Teachers and Principal.jpg"
+            alt="with Teachers and Principal"
+          />
+          <p>Clicked with Teachers and Principal</p>
+        </div>
+        <div class="achievement-card">
+          <img
+            src="images/Photo Click With Yogi Dinesh Jindal.jpg"
+            alt="With Yogi Dinesh Jindal"
+          />
+          <p>Clicked with Yogi Dinesh Jindal</p>
+        </div>
+        <div class="achievement-card">
+          <img src="images/Infosys Certificate.jpg" alt="Infosys Certificate" />
+          <p>@Infosys Certification</p>
+        </div>
+        <div class="achievement-card">
+          <img
+            src="images/DevTown Certificate Of Appreciation.jpg"
+            alt="DevTown Certificate Appreciation"
+          />
+          <p>Certificate Of Appreciation @DevTown</p>
+        </div>
+         <div class="achievement-card">
+          <img
+            src="images/Complete bootcamp Hack like Pro @devTown.jpg"
+            alt="DevTown Certificate Completion Bootcamp"
+          />
+          <p>Certificate Of Completion Bootcamp @DevTown</p>
+        </div>
+         <div class="achievement-card">
+          <img
+            src="images/Complete project Hack like Pro @devTown..jpg"
+            alt="DevTown Certificate Completion project"
+          />
+          <p>Certificate Of Completion Project @DevTown</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-wrapper">
+        <div class="about-image">
+          <img src="Images/2.jpg" alt="Saket Raj" />
+        </div>
+        <div class="about-text">
+          <p class="about-para">
+            I’m <strong>Saket Raj</strong>, a dedicated full-stack developer
+            passionate about building modern and responsive web applications.
+            With hands-on experience in Node.js, Express, MongoDB, and React, I
+            love turning complex problems into simple and elegant solutions. I’m
+            always exploring new technologies, contributing to meaningful
+            projects, and sharpening my skills with each line of code I write.
+          </p>
+          <p class="about-para"></p>
+          <p class="about-para"></p>
+          <a href="pdf/Resume Web Developer.pdf" class="btn-resume" download
+            >Download Resume</a
+          >
+        </div>
+      </div>
+
+      <!-- Timeline Section -->
+      <section class="timeline-section" id="timeline">
+        <h2 class="section-title underline-style">Education Timeline</h2>
+
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>10th Standard</h4>
+              <p>Bihar Board – 61.4% (2018)</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>12th Standard</h4>
+              <p>Bihar Board – 70% (2020)</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Graduation (B.Tech CSE)</h4>
+              <p>MMDU :- 2023 – Present</p>
+            </div>
+          </div>
+        </div>
+        <div class="media-container">
+          <img src="Images/pencil.gif" alt="Education Image" />
+        </div>
+      </section>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section animate-on-scroll">
+      <h2 class="section-title">Contact Me</h2>
+      <form
+        action="https://formspree.io/f/mvoejlbb"
+        method="POST"
+        class="contact-form"
+        id="contact-form"
+      >
+        <!-- <h1>Feel free to reach out. I am always here to help you.</h1> -->
+        <h1 class="header">Write Here ! Mail is sent Automatically</h1>
+        <input type="hidden" name="_captcha" value="false" />
+        <h1 class="inner-contact">Username</h1>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          required
+          id="name"
+        />
+        <h1 class="inner-contact2">Email</h1>
+        <input
+          type="email"
+          name="email"
+          placeholder="Saket123@gamil.com"
+          required
+        />
+        <h1 class="inner-contact2">Subject</h1>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="Your main title"
+        />
+        <h1 class="inner-contact2">Message</h1>
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="map-section">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d20452.86503420725!2d85.62465947108784!3d25.014047732744068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1747254464988!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <p id="form-response"></p>
+    </section>
+    <!-- Footer Section -->
+    <footer class="main-footer" id="social-icons">
+      <p class="para">© 2025 Saket Raj | All rights reserved</p>
+      <div class="social-icons">
+        <a
+          href="https://linkedin.com/in/saket-raj-855564298"
+          target="_blank"
+          class="social linkedin"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a
+          href="https://github.com/Saketraj234"
+          target="_blank"
+          class="social github"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="index.html" class="social-home"
+          ><i class="fa-solid fa-house"></i
+        ></a>
+        <a
+          href="https://x.com/saketraj235"
+          target="_blank"
+          class="social twitter"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          href="mailto:saketbarnwal468@gmail.com"
+          target="_blank"
+          class="social email"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
