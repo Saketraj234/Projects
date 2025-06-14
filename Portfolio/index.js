@@ -97,25 +97,3 @@ document.addEventListener("DOMContentLoaded", () => {
   animatedSections.forEach((section) => observer.observe(section));
 });
 
-// contact 
-  // const form = document.getElementById("contactForm");
-  // const messageBox = document.getElementById("formMessage");
-
-  // form.addEventListener("submit", function (e) {
-  //   e.preventDefault();
-
-  //   // Simulate a successful send (you can integrate backend here)
-  //   messageBox.textContent = "✅ Thank you! Your message has been sent.";
-  //   messageBox.className = "form-message success";
-  //   messageBox.style.display = "block";
-
-  //   // Optional: Clear form fields
-  //   form.reset();
-
-  //   // Hide after 5 seconds
-  //   setTimeout(() => {
-  //     messageBox.style.display = "none";
-  //   }, 5000);
-  // });
-
-  

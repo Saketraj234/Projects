@@ -2,7 +2,7 @@
 
 /* @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"); */
 
-/* @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bree+Serif&family=Kalam:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Righteous&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bree+Serif&family=Kalam:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Righteous&display=swap");
 
 * {
   margin: 0;
@@ -502,28 +502,26 @@ text-decoration: none;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1.5s forwards;
-     height: 10rem;
+  height: 10rem;
 
   &:hover {
     cursor: pointer;
     box-shadow: 0 0 15px rgba(17, 172, 199, 0.397);
     border-radius: 5rem;
     transition: all 0.3s ease;
-
   }
 
-  /* & img {
-    width: 20%;
-    height: 80%;
-    margin-bottom: 1rem;
-    margin-top: -1rem;
-  } */
-}
+  & img {
+    width: 5.5rem;
+    height: 5.2rem;
+    margin-top: -1.6rem;
+  }
 
-.skill-item h3 {
-  font-size: 1.8rem;
-  color: #00d9ff;
-  margin: 0;
+  & h3 {
+    font-size: 1.6rem;
+    color: #00d9ff;
+    margin: 0;
+  }
 }
 
 @keyframes fadeInSection {
@@ -977,7 +975,6 @@ strong {
   transition: 0.3s ease;
   width: 40rem;
   margin-left: 5rem;
-  /* margin-top:3rem; */
 }
 
 .header {
@@ -1161,12 +1158,7 @@ iframe {
   left: 0;
 }
 
-/* .social-home:hover::after {
-  width: 100%;
-} */
-
 /* Responsive Section */
-
 
 @media (min-width: 1025px) and (max-width: 1440px) {
   .section-navbar .navbar ul li a {
@@ -1347,65 +1339,6 @@ iframe {
   }
 }
 
-/* @media screen and (max-width: 1023px) {
-  .projects-container .project-card {
-    width: 95%;
-  }
-
-  .about-image img {
-    width: 75%;
-    height: 28rem;
-    margin-left: 7rem;
-  }
-
-  .btn-resume {
-    width: 18%;
-    padding: 1rem 1.5rem 1rem 1.5rem;
-  }
-
-  .contact-section .contact-form {
-    height: 50rem;
-    margin-top: 8rem;
-    margin-right: 60rem;
-    margin-left: 2rem;
-    /* padding-right: 13rem; */
-/* width:50rem;
-  }
-
-  .header {
-    width: 72%;
-    margin-left: 5rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 71%;
-  }
-
-  .contact-map {
-    margin-left: 45rem;
-    margin-right: -34rem;
-    width: -555rem;
-  }
-} */
-/* @media (min-width: 769px) and (max-width: 923px) {
-.media-container img {
-    box-shadow: 1px 2px 20px #1c8ee6;
-    border-radius: 20px;
-    /* background: transparent; */
-/* margin-top: 3.4rem;
-        margin-right: 21rem;
-    width: 18%;
-    /* margin-left:-1rem; */
-/* padding-left:5rem; */
-/* }
-
-
-
-} */
-
-
-
 @media (min-width: 769px) and (max-width: 1025px) {
   .profile-img {
     max-width: 100%;
@@ -1421,7 +1354,6 @@ iframe {
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
-    /* reduce horizontal and vertical gap */
     padding: 0px;
     margin-top: 5.5rem;
     max-width: 100%;
@@ -1438,9 +1370,9 @@ iframe {
 
 
   .skill-item {
-   width: 26rem;
-        margin-left: 0rem;
-        height: 9.4rem;
+    width: 26rem;
+    margin-left: 0rem;
+    height: 9.4rem;
 
     & h3 {
       font-size: 1.55rem;
@@ -1448,7 +1380,7 @@ iframe {
 
     /* & img{
       /* width:12rem */
-    /* } */ 
+    /* } */
   }
 
   .achievement-card {
@@ -1529,14 +1461,14 @@ iframe {
   }
 
   .map-section {
-   margin-left: 48.5rem;
-        margin-top: -57rem;
-        max-width: 47rem;
-        height: 560px;
+    margin-left: 48.5rem;
+    margin-top: -57rem;
+    max-width: 47rem;
+    height: 560px;
   }
 
   iframe {
-           height: 539.5px;
+    height: 539.5px;
     width: 45rem
   }
 
@@ -1580,7 +1512,6 @@ iframe {
     transition: max-height 0.3s ease;
     border-radius: 0 0 0 17px;
     box-shadow: -2px 2px 10px rgb(13, 160, 193);
-    /*z-index: 0; */
     height: 26rem;
   }
 
@@ -1642,14 +1573,16 @@ iframe {
     margin-left: 0rem;
     height: 8.2rem;
     padding-top: 2.3rem;
-& h3{
-  font-size: 1.3rem;
-}
-    & img{
-            max-width: 5rem;
-            height: auto;
-            border-radius: 0.5rem;
-}
+
+    & h3 {
+      font-size: 1.3rem;
+    }
+
+    & img {
+      max-width: 5rem;
+      height: auto;
+      border-radius: 0.5rem;
+    }
   }
 
   .achievement-card {
@@ -1753,9 +1686,7 @@ iframe {
 
   .hero {
     flex-direction: column;
-    /* 🔄 Stack image above text */
     align-items: center;
-    /* 📍 Center align everything */
     text-align: center;
   }
 
@@ -1763,7 +1694,7 @@ iframe {
     max-width: 214px;
     height: auto;
     margin-bottom: -60px;
-    /* spacing between image and text */
+   
   }
 
   .hero-right {
@@ -1855,7 +1786,8 @@ iframe {
   .skill-item {
     width: 30rem;
     margin-left: 2rem;
-height:9rem;
+    height: 9rem;
+
     & h3 {
       font-size: 1.5rem;
     }
@@ -1866,11 +1798,7 @@ height:9rem;
     height: auto;
   }
 
-  /* .btn-resume {
-    width: 33%;
-    padding: 1rem 1rem 1rem 1.6rem;
-  } */
-
+  
   .about-image img {
     width: 79%;
     height: 17rem;
@@ -1972,6 +1900,46 @@ height:9rem;
   grid-template-columns: repeat(1, 1fr);
 }
 
+@media (max-width: 400px) {
+
+.hero{
+  padding-left:1rem;
+}
+
+.projects-container{
+  margin-left:-5rem;
+}
+  .skill-item {
+    width: 30.7rem;
+    height: 9.1rem;
+    margin-left: 0.4rem;
+  }
+.achievement-card {
+ width: 23rem;
+ height: auto;
+}
+  .section-title {
+    margin-top: 2rem;
+  }
+
+  .contact-section {
+    padding: 0.5rem;
+
+  }
+
+  .contact-form {
+    margin-right: 5rem;
+  }
+
+  .map-section {
+    margin-bottom: 2rem
+  }
+
+  iframe {
+    height: 340px;
+  }
+}
+
 @media screen and (max-width: 376px) {
   .profile-img {
     width: 20rem;
@@ -2006,15 +1974,15 @@ height:9rem;
     margin-left: 0.5rem;
 
     & h3 {
-     font-size: 1.4rem;
-            padding-top: 0.5rem;
+      font-size: 1.4rem;
+      padding-top: 0.5rem;
     }
   }
 
   .achievement-card {
-         width: 18.5rem;
-        height: 18.5rem;
-        /* margin-bottom: 0.2rem; */
+    width: 18.5rem;
+    height: 18.5rem;
+    /* margin-bottom: 0.2rem; */
   }
 
   .about-image img {
@@ -2133,16 +2101,17 @@ height:9rem;
   }
 
   .skill-item {
-            width: 24.7rem;
-        height: 9.1rem;
-        margin-left: 0.5rem;
+    width: 24.7rem;
+    height: 9.1rem;
+    margin-left: 0.5rem;
   }
 
- .achievement-card {
-         width: 18.5rem;
-        height: 18.5rem;
-        /* margin-bottom: 0.2rem; */
+  .achievement-card {
+    width: 18.5rem;
+    height: 18.5rem;
+    /* margin-bottom: 0.2rem; */
   }
+
   .timeline-container {
     margin-left: 0.5rem;
     margin-top: 0.5rem;
@@ -2245,12 +2214,3 @@ height:9rem;
     }
   }
 }
-
-
-.skill-item img {
-    width: 5.5rem;
-    height: 5.2rem;
-    margin-top: -1.6rem;
-    
-}
-
