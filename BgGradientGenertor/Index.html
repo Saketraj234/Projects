@@ -4,73 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  h1 {
-    /* display: flex;
-    justify-content: center;
-    align-items: start; */
-   padding-bottom: 3rem;
-   margin-left: 4.3rem;
-  }
-  .text {
-    margin-left: 10.6rem;
-    padding-top: 1.6rem;
-    padding-bottom: 0.8rem;
-    font-size: 80%;
-    font-weight: 550;
-  }
-  .copyCode {
-    height: 4rem;
-    width: 20rem;
-    margin-left: 5rem;
-    padding-top: 0.7rem;
-    padding-left: 1.2rem;
-
-    background-color: rgb(255, 253, 255);
-    box-shadow: 2px 1px 45px 0px rgba(172, 167, 167, 0.977);
-    border-radius: 5%;
-    background: transparent;
-  }
-  body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    background-image: linear-gradient(
-      to right top,
-      #051937,
-      #004d7a,
-      #008793,
-      #00bf72,
-      #a8eb12
-    );
-  }
-  #myButton {
-    width: 6vw;
-    height: 5.3vh;
-    margin-left: 7rem;
-    border-radius: 20%;
-    background-color: rgba(57, 175, 46, 0.893);
-    box-shadow: 3px 4px 45px 0px rgba(172, 167, 167, 0.977);
-  }
-  #myButton2 {
-    width: 6vw;
-    height: 5.3vh;
-    margin-left: 2rem;
-    border-radius: 20%;
-    background-color: rgb(158, 104, 176);
-    box-shadow: 2px 3px 45px 0px rgba(172, 167, 167, 0.977);
-
-  }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <section>
@@ -85,48 +19,7 @@
         rgb(152, 63, 198));
       </div>
     </section>
-
-    <script>
-      let btn1 = document.getElementById("myButton");
-      let btn2 = document.getElementById("myButton2");
-      let copyDiv = document.querySelector(".copyCode");
-      let rgb1 = "#004773";
-      let rgb2 = "#54d542";
-
-      const hexValues = () => {
-        let myHexValues = "0123456789abcdef";
-        let colors = "#";
-        for (let i = 0; i < 6; i++) {
-          colors = colors + myHexValues[Math.floor(Math.random() * 16)];
-        }
-        return colors;
-      };
-
-      const handleButton1 = () => {
-        rgb1 = hexValues();
-        console.log(rgb1);
-        btn1.innerText = rgb1;
-        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
-        copyDiv.innerHTML = `background-image: linear-gradient(to right,
-        ${rgb1}, ${rgb2}))`;
-      };
-
-      const handleButton2 = () => {
-        rgb2 = hexValues();
-        console.log(rgb2);
-        btn2.innerText = rgb2;
-        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
-        copyDiv.innerHTML = `background-image: linear-gradient(to right,
-        ${rgb1}, ${rgb2})`;
-      };
-
-      btn1.addEventListener("click", handleButton1);
-      btn2.addEventListener("click", handleButton2);
-
-      copyDiv.addEventListener("click", () => {
-        navigator.clipboard.writeText(copyDiv.innerText);
-      });
-      alert('Welcome to Background Gradient Maker');
-    </script>
+<script src="script.js"></script>
+    
   </body>
 </html>
