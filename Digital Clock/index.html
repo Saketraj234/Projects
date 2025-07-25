@@ -11,37 +11,12 @@
     <div class="container">
       <div class="clockHolder">
         <div class="timeHolder">
-          <!-- <div class="timeOptions">
-            <i class="fa-light fa-clock"></i>
-            <i class="fa-regular fa-stopwatch"></i>
-            <i class="fa-regular fa-clock"></i>
-             <i class="fa-solid fa-bars"></i> -->
-          <!-- </div> -->
           <div class="mainDiv">
             <p id="clock"></p>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      const currentTime = () => {
-        let curTime = new Date().toLocaleTimeString();
-        document.getElementById("clock").innerText = curTime;
-      };
-      currentTime();
-
-      // isse continuously se chlta rhega start here
-      setInterval(() => {
-          currentTime();
-      }, 1000);
-      // end here
-
-      // isse after kitna der ke baad rokhna chahte ho  Start here
-      // const intervalid = setInterval(() => {
-      //   currentTime();
-      // }, 1000);
-      // setTimeout(() => clearInterval(intervalid), 5000);
-      //end here
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
