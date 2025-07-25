@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Stopwatch & Timer Tool</h1>
+        <div class="datetime-container">
+          <div class="time-display">
+            <i class="fas fa-clock"></i>
+            <span id="current-time">00:00:00</span>
+          </div>
+          <div class="date-display">
+            <i class="fas fa-calendar-alt"></i>
+            <span id="current-date">Monday, January 1, 2023</span>
+          </div>
+        </div>
+        <button id="theme-toggle" class="theme-btn">
+          <i class="fas fa-moon"></i> Dark Mode
+        </button>
+      </header>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="stopwatch">Stopwatch</button>
+        <button class="tab-btn" data-tab="timer">Timer</button>
+      </div>
+
+      <div class="tab-content">
+        <!-- Stopwatch Section -->
+        <div class="tab-pane active" id="stopwatch-tab">
+          <div class="display-container">
+            <div id="stopwatch-display" class="time-display">00:00:00</div>
+          </div>
+          <div class="controls">
+            <button id="stopwatch-start" class="control-btn start-btn">
+              <i class="fas fa-play"></i> Start
+            </button>
+            <button id="stopwatch-stop" class="control-btn stop-btn">
+              <i class="fas fa-pause"></i> Stop
+            </button>
+            <button id="stopwatch-reset" class="control-btn reset-btn">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+            <button id="stopwatch-lap" class="control-btn lap-btn">
+              <i class="fas fa-flag"></i> Lap
+            </button>
+          </div>
+          <div class="laps-container">
+            <h3>Laps</h3>
+            <ul id="laps-list"></ul>
+          </div>
+        </div>
+
+        <!-- Timer Section -->
+        <div class="tab-pane" id="timer-tab">
+          <div class="display-container">
+            <div id="timer-display" class="time-display">00:00:00</div>
+          </div>
+          <div class="timer-input">
+            <div class="input-group">
+              <label for="timer-hours">Hours</label>
+              <input type="number" id="timer-hours" min="0" max="23" placeholder="0">
+            </div>
+            <div class="input-group">
+              <label for="timer-minutes">Minutes</label>
+              <input type="number" id="timer-minutes" min="0" max="59" placeholder="0">
+            </div>
+            <div class="input-group">
+              <label for="timer-seconds">Seconds</label>
+              <input type="number" id="timer-seconds" min="0" max="59" placeholder="0">
+            </div>
+          </div>
+          <div class="controls">
+            <button id="timer-start" class="control-btn start-btn">
+              <i class="fas fa-play"></i> Start
+            </button>
+            <button id="timer-stop" class="control-btn stop-btn">
+              <i class="fas fa-pause"></i> Stop
+            </button>
+            <button id="timer-reset" class="control-btn reset-btn">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>A Project by :- <span class="author-name">Saket Raj</span></p>
+        <p class="copyright">&copy; 2025 All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Tab switching functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Remove active class from all buttons and panes
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding pane
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab') + '-tab';
+            document.getElementById(tabId).classList.add('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
