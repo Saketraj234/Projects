@@ -67,7 +67,8 @@ exports.getNote = async (req, res) => {
       }
       
       // Check if the note belongs to the user
-      if (note.user !== userId) {
+      // Convert both to strings and compare
+      if (note.user.toString() !== userId.toString()) {
         return res.status(403).json({
           success: false,
           error: 'Not authorized to access this note'
@@ -91,7 +92,8 @@ exports.getNote = async (req, res) => {
     }
     
     // Check if the note belongs to the user
-    if (note.user.toString() !== userId) {
+    // Convert both to strings and compare
+    if (note.user.toString() !== userId.toString()) {
       return res.status(403).json({
         success: false,
         error: 'Not authorized to access this note'
@@ -216,7 +218,9 @@ exports.updateNote = async (req, res) => {
       }
       
       // Check if the note belongs to the user
-      if (inMemoryNotes[noteIndex].user !== userId) {
+      // Convert both to strings and compare
+      if (inMemoryNotes[noteIndex].user.toString() !== userId.toString()) {
+        console.log('Update authorization failed:', { noteUser: inMemoryNotes[noteIndex].user, requestUser: userId });
         return res.status(403).json({
           success: false,
           error: 'Not authorized to update this note'
@@ -253,7 +257,10 @@ exports.updateNote = async (req, res) => {
     }
     
     // Check if the note belongs to the user
-    if (note.user.toString() !== userId) {
+    console.log('MongoDB Update authorization check:', { noteUser: note.user.toString(), requestUser: userId });
+    // Convert both to strings and compare
+    if (note.user.toString() !== userId.toString()) {
+      console.log('MongoDB Update authorization failed:', { noteUser: note.user.toString(), requestUser: userId });
       return res.status(403).json({
         success: false,
         error: 'Not authorized to update this note'
@@ -313,7 +320,8 @@ exports.togglePinStatus = async (req, res) => {
       }
       
       // Check if the note belongs to the user
-      if (inMemoryNotes[noteIndex].user !== userId) {
+      // Convert both to strings and compare
+      if (inMemoryNotes[noteIndex].user.toString() !== userId.toString()) {
         return res.status(403).json({
           success: false,
           error: 'Not authorized to update this note'
@@ -347,7 +355,8 @@ exports.togglePinStatus = async (req, res) => {
     }
     
     // Check if the note belongs to the user
-    if (note.user.toString() !== userId) {
+    // Convert both to strings and compare
+    if (note.user.toString() !== userId.toString()) {
       return res.status(403).json({
         success: false,
         error: 'Not authorized to update this note'
@@ -396,7 +405,10 @@ exports.deleteNote = async (req, res) => {
       }
       
       // Check if the note belongs to the user
-      if (inMemoryNotes[noteIndex].user !== userId) {
+      console.log('In-memory Delete authorization check:', { noteUser: inMemoryNotes[noteIndex].user, requestUser: userId });
+      // Convert both to strings and compare
+      if (inMemoryNotes[noteIndex].user.toString() !== userId.toString()) {
+        console.log('In-memory Delete authorization failed:', { noteUser: inMemoryNotes[noteIndex].user, requestUser: userId });
         return res.status(403).json({
           success: false,
           error: 'Not authorized to delete this note'
@@ -423,7 +435,10 @@ exports.deleteNote = async (req, res) => {
     }
     
     // Check if the note belongs to the user
-    if (note.user.toString() !== userId) {
+    console.log('MongoDB Delete authorization check:', { noteUser: note.user.toString(), requestUser: userId });
+    // Convert both to strings and compare
+    if (note.user.toString() !== userId.toString()) {
+      console.log('MongoDB Delete authorization failed:', { noteUser: note.user.toString(), requestUser: userId });
       return res.status(403).json({
         success: false,
         error: 'Not authorized to delete this note'
