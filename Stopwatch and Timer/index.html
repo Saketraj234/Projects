@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Watch</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
@@ -65,15 +68,33 @@
           <div class="timer-input">
             <div class="input-group">
               <label for="timer-hours">Hours</label>
-              <input type="number" id="timer-hours" min="0" max="23" placeholder="0">
+              <input
+                type="number"
+                id="timer-hours"
+                min="0"
+                max="23"
+                placeholder="0"
+              />
             </div>
             <div class="input-group">
               <label for="timer-minutes">Minutes</label>
-              <input type="number" id="timer-minutes" min="0" max="59" placeholder="0">
+              <input
+                type="number"
+                id="timer-minutes"
+                min="0"
+                max="59"
+                placeholder="0"
+              />
             </div>
             <div class="input-group">
               <label for="timer-seconds">Seconds</label>
-              <input type="number" id="timer-seconds" min="0" max="59" placeholder="0">
+              <input
+                type="number"
+                id="timer-seconds"
+                min="0"
+                max="59"
+                placeholder="0"
+              />
             </div>
           </div>
           <div class="controls">
@@ -97,27 +118,6 @@
         <p class="copyright">&copy; 2025 All Rights Reserved</p>
       </div>
     </footer>
-
     <script src="script.js"></script>
-    <script>
-      // Tab switching functionality
-      document.addEventListener('DOMContentLoaded', () => {
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabPanes = document.querySelectorAll('.tab-pane');
-        
-        tabBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // Remove active class from all buttons and panes
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanes.forEach(p => p.classList.remove('active'));
-            
-            // Add active class to clicked button and corresponding pane
-            btn.classList.add('active');
-            const tabId = btn.getAttribute('data-tab') + '-tab';
-            document.getElementById(tabId).classList.add('active');
-          });
-        });
-      });
-    </script>
   </body>
 </html>
