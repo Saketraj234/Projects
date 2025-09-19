@@ -21,7 +21,7 @@ async function getWeather() {
     try {
         // Get current weather
         const currentWeatherResponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2bc7fd76b2a01313089b3332eda22ca1`
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid= #`// # = Iske jagah own APiid dalana hai
         );
         const currentWeatherData = await currentWeatherResponse.json();
 
@@ -31,7 +31,7 @@ async function getWeather() {
 
         // Get 7-day forecast
         const forecastResponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=2bc7fd76b2a01313089b3332eda22ca1`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid= #`
         );
         const forecastData = await forecastResponse.json();
 
