@@ -31,7 +31,7 @@ async function getWeather() {
 
         // Get 7-day forecast
         const forecastResponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid= #`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid= #`// # = Iske jagah own APiid dalana hai
         );
         const forecastData = await forecastResponse.json();
 
