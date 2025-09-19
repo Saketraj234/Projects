@@ -1,304 +1,171 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-/* background: linear-gradient(135deg, #00feba, #5b548a); */
-  color: #171717;
-background: url(Images/1.jpg);
-background-size: cover;
-}
-
-/* .upper { */
-  /* text-align: center; */
-  /* margin-bottom: -2rem; */
-  /* margin-top: 0.6rem; */
-  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-  /* font-weight: 600; */
-  /* color: #8a5505b3; */
-/* } */
-
-.header{
- background-color: #74ed0ab5;
- width: 20rem;
- margin-left:37.3rem;
- border-radius: 0.5rem;
- box-shadow: 0px 0px 20px rgb(44, 25, 1) inset;
-}
-.front{
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0 -2.8rem 0;
-  color:rgba(74, 8, 73, 0.847);
-}
-.header .front:hover{
-  color: rgb(7, 7, 8);
-  background-color: rgb(207, 142, 12);
-   box-shadow: 0px 0px 20px rgb(26, 15, 1) inset;
-   border-radius: 0.5rem;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .container {
-  background:url(Images/2.jpg);
-  background-size: cover;
-  background-repeat: round;
-  /* border-color: #c61919; */
-  color: #000000;
-  padding: 2rem;
-  width: 40%;
-  height: 40rem;
-  margin: 4rem auto;
-  border-radius: 10px;
-  /* margin-top: 2.5rem; */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
 }
 
-.weather_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  & i {
-    color: #080606e6;
-  }
-}
-
-input {
-  border: none;
-  background: #7f58a5a8;
-  color: #000000a0;
-  outline: none;
-  padding: 0.5rem 2.5rem;
-  border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-input::placeholder {
-  color: #080606f1;
-}
-
-.weather_search {
-  position: relative;
-}
-
-
-.weather_search i {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  font-size: 15px;
-  color: #000000bd;
-}
-
-.weather_units {
-  font-size: 1.5rem;
-}
-
-.weather_units span {
-  cursor: pointer;
-}
-
-.weather_units span:first-child {
-  margin-right: 0.5rem;
-}
-
-.weather_body {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.weather_datetime {
-  margin-bottom: 2rem;
-  font-size: 14px;
-}
-
-.weather_forecast {
-  background: #1e1e1e;
-  /* background-color: #f7f7f7; */
-  color: #fff;
-  /* color: #171717; */
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-}
-
-.weather_icon img {
-  width: 100px;
-  filter: drop-shadow(2px 4px 6px rgb(0, 0, 0));
-  -webkit-filter: drop-shadow(2px 4px 6px black);
-}
-
-.weather_temperature {
-  font-size: 1.75rem;
-}
-
-.weather_minmax {
-  display: flex;
-  justify-content: center;
-}
-
-.weather_minmax p {
-  font-size: 14px;
-  margin: 0.5rem;
-}
-
-.weather_info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-  margin-top: 3rem;
-}
-
-.weather_card {
-  display: flex;
-  align-items: center;
-  background: #1e1e1e;
-  background-color: #7f58a5a8;
-  color: #000000f7;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.weather_card i {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-}
-
-.weather_card p {
-  font-size: 14px;
-}
-
-.down {
-  margin-left: 38rem;
-  font-family: serif;
-  font-size: 1.2rem;
-  color: #053256;
-  margin-top: -3rem;
-}
-
-.main-footer{
-  color:#38fdf7;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  margin: -2.7rem 0 1.2rem 0;
-}
-strong{
-  color:#ffd900
-}
-
-/***** Media queries Section *****/
-
-@media screen and (max-width: 1440px) {
-  .down {
-    margin-left: 33.8rem;
-    font-size: 1.3rem;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .down {
-    margin-left: 22rem;
-    font-size: 1.1rem;
-    margin-top: -3rem;
-  }
-
-  .container {
-    /* background-color: red; */
-    margin-bottom: 5rem;
-    padding-bottom: 1.2rem;
-    padding-top: 1rem;
-    margin-top: 3.5rem;
-  }
-}
-
-@media (max-width: 936px) {
-  .container {
-    width: 90%;
-  }
-
-  .weather_header {
-    flex-direction: column;
-  }
-
-  .weather_units {
-    margin-top: 1rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .down {
-    margin-left: 15rem;
-  }
-}
-
-@media screen and (max-width: 426px) {
-  .down {
-    margin-left: 4.1rem;
-    /* color: #560505; */
-    font-size: 1.1rem;
-    /* font-weight: 550; */
-  }
-}
-
-@media (max-width: 400px) {
-  .weather_info {
-    grid-template-columns: none;
-  }
-}
-
-@media screen and (max-width: 376px) {
-
-  .container {
-    height: 45rem;
-  }
-
-  .weather_body {
-    margin-top: 1.3rem;
-
-    & .weather_temperature {
-      margin-top: -0.8rem;
+@keyframes fadeIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
+}
 
-    & .weather_minmax {
-      margin-top: -0.4rem;
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.search-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #fff;
+    color: #5b548a;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background: #5b548a;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.weather-container {
+    color: #fff;
+}
+
+.current-weather {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.weather-info {
+    margin-top: 20px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.temperature {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.city-name {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.forecast h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.forecast-day {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-
- .weather_info {
-    margin-top: 1.5rem;
-  }
-
-  .down {
-    margin-left: 3rem;
-    font-size: 1rem;
-    font-weight: 600;
-
-  }
 }
 
-@media screen and (max-width: 800px) {
-  .weather-info {
-    margin-top: -50rem;
-  }
-  
-}
-@media screen and (max-width: 321px) {
-.weather_info {
-  margin-top: 0.8rem;
+.forecast-day:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
 }
 
-  .down {
-    font-size: 0.8rem;
-    margin-left: 2.9rem;
-    margin-bottom: -1rem;
-  }
+.forecast-date {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.8;
 }
 
-/***** End media queries Section *****/
+.forecast-temp {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
 
+.forecast-desc {
+    font-size: 14px;
+    opacity: 0.8;
+}

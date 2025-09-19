@@ -1,84 +1,87 @@
-let cityName = document.querySelector(".weather_city");
-let dateTime = document.querySelector(".weather_date_time");
-let w_forecast = document.querySelector(".weather_forecast");
-let w_temperature = document.querySelector(".weather_temperature");
-let w_icon = document.querySelector(".weather_icon");
-let w_minTem = document.querySelector(".weather_min");
-let w_maxTem = document.querySelector(".weather_max");
+const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+const searchInput = document.querySelector('.search-input');
+const searchButton = document.querySelector('.search-button');
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const description = document.querySelector('.description');
+const cityName = document.querySelector('.city-name');
+const forecastContainer = document.querySelector('.forecast-container');
 
-let w_feelsLike = document.querySelector(".weather_feelsLike");
-let w_humidity = document.querySelector(".weather_humidity");
-let w_wind = document.querySelector(".weather_wind");
-let w_pressure = document.querySelector(".weather_pressure");
-
-let citySearch = document.querySelector(".weather_search");
-
-// to get the actual country name
-
-const getCountryName = (code) => {
-  return new Intl.DisplayNames([code], { type: "region" }).of(code);
-};
-
-// to get the date and time
-
-const getDateTime = (dt) => {
-  const curDate = new Date(dt * 1000); //convert seconds to milliseconds .
-  console.log(curDate);
-
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minutes: "numeric",
-  };
-  const formatter = new Intl.DateTimeFormat("en-US", options);
-  console.log(formatter);
-  return formatter.format(curDate);
-};
-let city = "ambala";
-// search functionality
-
-citySearch.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let cityName = document.querySelector(".city_name");
-  console.log(cityName.value);
-  city = cityName.value;
-  getWeatherData();
-  cityName.value = "";
+// Add event listeners
+searchButton.addEventListener('click', getWeather);
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') getWeather();
 });
 
-//define the getWeather function here
+// Fetch weather data
+async function getWeather() {
+    const city = searchInput.value.trim();
+    if (!city) return;
 
-const getWeatherData = async () => {
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=92e739023f5ecf12daee937a949a58ac`;
+    try {
+        // Get current weather
+        const currentWeatherResponse = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2bc7fd76b2a01313089b3332eda22ca1`
+        );
+        const currentWeatherData = await currentWeatherResponse.json();
 
-  try {
-    const res = await fetch(weatherUrl);
-    const data = await res.json();
-    console.log(data);
-    const { main, name, weather, wind, sys, dt } = data;
-    cityName.innerHTML = `${name} ,${getCountryName(sys.country)}`;
-    dateTime.innerHTML = getDateTime(dt);
+        if (currentWeatherResponse.status === 404) {
+            throw new Error('City not found');
+        }
 
-    w_forecast.innerHTML = weather[0].main;
-    w_icon.innerHTML = `<img src="http://openweathermap.org/img/wn/${weather[0].icon}@4x.png"/>`;
+        // Get 7-day forecast
+        const forecastResponse = await fetch(
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=2bc7fd76b2a01313089b3332eda22ca1`
+        );
+        const forecastData = await forecastResponse.json();
 
-    let temperature = main.temp;
-    temperature = (temperature - 273).toFixed(0);
-    w_temperature.innerHTML = `${(main.temp - 273).toFixed(0)}&#176`;
+        displayCurrentWeather(currentWeatherData);
+        displayForecast(forecastData);
 
-    w_minTem.innerHTML = `Min: ${(main.temp_min - 273).toFixed(1)}&#176`;
-    w_maxTem.innerHTML = `Max: ${(main.temp_max - 273).toFixed(1)}&#176`;
+    } catch (error) {
+        alert('City not found or API error. Please try again.');
+        console.error('Error:', error);
+    }
+}
 
-    w_feelsLike.innerHTML = `${(main.feels_like - 273).toFixed(2)}&#176`;
-    w_humidity.innerHTML = ` ${main.humidity}%`;
-    w_wind.innerHTML = `${wind.speed}m/s`;
-    w_pressure.innerHTML = `${main.pressure} hPa`;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// Display current weather
+function displayCurrentWeather(data) {
+    const iconCode = data.weather[0].icon;
+    weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    temperature.textContent = `${Math.round(data.main.temp)}°C`;
+    description.textContent = data.weather[0].description;
+    cityName.textContent = `${data.name}, ${data.sys.country}`;
+}
 
-document.body.addEventListener("load", getWeatherData());
+// Display 7-day forecast
+function displayForecast(data) {
+    forecastContainer.innerHTML = '';
+    
+    // Get one forecast per day (every 8th item as the API returns 3-hour forecasts)
+    const dailyForecasts = data.list.filter((forecast, index) => index % 8 === 0).slice(0, 7);
+
+    dailyForecasts.forEach((forecast, index) => {
+        const date = new Date(forecast.dt * 1000);
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const iconCode = forecast.weather[0].icon;
+
+        const forecastDay = document.createElement('div');
+        forecastDay.className = 'forecast-day';
+        forecastDay.style.animationDelay = `${index * 0.1}s`;
+
+        forecastDay.innerHTML = `
+            <div class="forecast-date">${dayName}</div>
+            <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="weather icon">
+            <div class="forecast-temp">${Math.round(forecast.main.temp)}°C</div>
+            <div class="forecast-desc">${forecast.weather[0].description}</div>
+        `;
+
+        forecastContainer.appendChild(forecastDay);
+    });
+}
+
+// Initial weather data for a default city
+document.addEventListener('DOMContentLoaded', () => {
+    searchInput.value = 'Ambala';
+    getWeather();
+});
