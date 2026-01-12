@@ -1,5 +1,5 @@
 const Note = require('../models/Note');
-const { inMemoryNotes, isUsingInMemory, generateId } = require('../server');
+const storage = require('../utils/storage');
 
 exports.getNotes = async (req, res) => {
   try {
@@ -12,9 +12,9 @@ exports.getNotes = async (req, res) => {
       });
     }
     
-    if (isUsingInMemory) {
+    if (storage.isUsingInMemory) {
       // Filter notes by user and sort by isPinned and updatedAt
-      const userNotes = inMemoryNotes.filter(note => note.user === userId);
+      const userNotes = storage.notes.filter(note => note.user.toString() === userId.toString());
       const sortedNotes = [...userNotes].sort((a, b) => {
         if (a.isPinned === b.isPinned) {
           return new Date(b.updatedAt) - new Date(a.updatedAt);
@@ -56,8 +56,8 @@ exports.getNote = async (req, res) => {
       });
     }
     
-    if (isUsingInMemory) {
-      const note = inMemoryNotes.find(note => note._id === req.params.id);
+    if (storage.isUsingInMemory) {
+      const note = storage.notes.find(note => note._id === req.params.id);
       
       if (!note) {
         return res.status(404).json({
@@ -133,10 +133,10 @@ exports.createNote = async (req, res) => {
       });
     }
     
-    if (isUsingInMemory) {
+    if (storage.isUsingInMemory) {
       // Create new note for in-memory storage
       const newNote = {
-        _id: generateId(),
+        _id: storage.generateId(),
         title: req.body.title,
         content: req.body.content,
         color: req.body.color || '#ffffff',
@@ -147,7 +147,7 @@ exports.createNote = async (req, res) => {
       };
       
       // Add to in-memory notes array
-      inMemoryNotes.push(newNote);
+      storage.notes.push(newNote);
       
       return res.status(201).json({
         success: true,
@@ -206,9 +206,9 @@ exports.updateNote = async (req, res) => {
       });
     }
     
-    if (isUsingInMemory) {
+    if (storage.isUsingInMemory) {
       // Find note in in-memory storage
-      const noteIndex = inMemoryNotes.findIndex(note => note._id === req.params.id);
+      const noteIndex = storage.notes.findIndex(note => note._id === req.params.id);
       
       if (noteIndex === -1) {
         return res.status(404).json({
@@ -219,8 +219,8 @@ exports.updateNote = async (req, res) => {
       
       // Check if the note belongs to the user
       // Convert both to strings and compare
-      if (inMemoryNotes[noteIndex].user.toString() !== userId.toString()) {
-        console.log('Update authorization failed:', { noteUser: inMemoryNotes[noteIndex].user, requestUser: userId });
+      if (storage.notes[noteIndex].user.toString() !== userId.toString()) {
+        console.log('Update authorization failed:', { noteUser: storage.notes[noteIndex].user, requestUser: userId });
         return res.status(403).json({
           success: false,
           error: 'Not authorized to update this note'
@@ -229,16 +229,16 @@ exports.updateNote = async (req, res) => {
       
       // Update the note
       const updatedNote = {
-        ...inMemoryNotes[noteIndex],
+        ...storage.notes[noteIndex],
         title: req.body.title,
         content: req.body.content,
-        color: req.body.color || inMemoryNotes[noteIndex].color,
-        isPinned: req.body.isPinned !== undefined ? req.body.isPinned : inMemoryNotes[noteIndex].isPinned,
+        color: req.body.color || storage.notes[noteIndex].color,
+        isPinned: req.body.isPinned !== undefined ? req.body.isPinned : storage.notes[noteIndex].isPinned,
         updatedAt: new Date()
       };
       
       // Replace the old note with updated one
-      inMemoryNotes[noteIndex] = updatedNote;
+      storage.notes[noteIndex] = updatedNote;
       
       return res.status(200).json({
         success: true,
@@ -308,9 +308,9 @@ exports.togglePinStatus = async (req, res) => {
       });
     }
     
-    if (isUsingInMemory) {
+    if (storage.isUsingInMemory) {
       // Find note in in-memory storage
-      const noteIndex = inMemoryNotes.findIndex(note => note._id === req.params.id);
+      const noteIndex = storage.notes.findIndex(note => note._id === req.params.id);
       
       if (noteIndex === -1) {
         return res.status(404).json({
@@ -321,7 +321,7 @@ exports.togglePinStatus = async (req, res) => {
       
       // Check if the note belongs to the user
       // Convert both to strings and compare
-      if (inMemoryNotes[noteIndex].user.toString() !== userId.toString()) {
+      if (storage.notes[noteIndex].user.toString() !== userId.toString()) {
         return res.status(403).json({
           success: false,
           error: 'Not authorized to update this note'
@@ -330,13 +330,13 @@ exports.togglePinStatus = async (req, res) => {
       
       // Toggle pin status
       const updatedNote = {
-        ...inMemoryNotes[noteIndex],
-        isPinned: !inMemoryNotes[noteIndex].isPinned,
+        ...storage.notes[noteIndex],
+        isPinned: !storage.notes[noteIndex].isPinned,
         updatedAt: new Date()
       };
       
       // Replace the old note with updated one
-      inMemoryNotes[noteIndex] = updatedNote;
+      storage.notes[noteIndex] = updatedNote;
       
       return res.status(200).json({
         success: true,
@@ -393,9 +393,9 @@ exports.deleteNote = async (req, res) => {
       });
     }
     
-    if (isUsingInMemory) {
+    if (storage.isUsingInMemory) {
       // Find note in in-memory storage
-      const noteIndex = inMemoryNotes.findIndex(note => note._id === req.params.id);
+      const noteIndex = storage.notes.findIndex(note => note._id === req.params.id);
       
       if (noteIndex === -1) {
         return res.status(404).json({
@@ -405,10 +405,10 @@ exports.deleteNote = async (req, res) => {
       }
       
       // Check if the note belongs to the user
-      console.log('In-memory Delete authorization check:', { noteUser: inMemoryNotes[noteIndex].user, requestUser: userId });
+      console.log('In-memory Delete authorization check:', { noteUser: storage.notes[noteIndex].user, requestUser: userId });
       // Convert both to strings and compare
-      if (inMemoryNotes[noteIndex].user.toString() !== userId.toString()) {
-        console.log('In-memory Delete authorization failed:', { noteUser: inMemoryNotes[noteIndex].user, requestUser: userId });
+      if (storage.notes[noteIndex].user.toString() !== userId.toString()) {
+        console.log('In-memory Delete authorization failed:', { noteUser: storage.notes[noteIndex].user, requestUser: userId });
         return res.status(403).json({
           success: false,
           error: 'Not authorized to delete this note'
@@ -416,7 +416,7 @@ exports.deleteNote = async (req, res) => {
       }
       
       // Remove note from array
-      inMemoryNotes.splice(noteIndex, 1);
+      storage.notes.splice(noteIndex, 1);
       
       return res.status(200).json({
         success: true,

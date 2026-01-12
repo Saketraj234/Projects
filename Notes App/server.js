@@ -4,19 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
-
-// In-memory notes storage as fallback when MongoDB is not available
-let inMemoryNotes = [];
-let isUsingInMemory = false;
-
-// Helper function to generate unique IDs for in-memory notes
-const generateId = () => {
-  return Math.random().toString(36).substring(2, 15) + 
-         Math.random().toString(36).substring(2, 15);
-};
-
-// Export in-memory storage and helper function for controllers
-module.exports = { inMemoryNotes, isUsingInMemory, generateId };
+const storage = require('./utils/storage');
 
 // Import routes
 const noteRoutes = require('./routes/noteRoutes');
@@ -27,7 +15,6 @@ console.log('Auth routes loaded:', Object.keys(authRoutes));
 
 // Initialize express app
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -50,11 +37,11 @@ app.get('*', (req, res) => {
 // Function to start the server
 const startServer = () => {
   // Define PORT
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || 5001;
   
   app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-    console.log(`Using ${isUsingInMemory ? 'in-memory storage' : 'MongoDB'} for data persistence`);
+    console.log(`Using ${storage.isUsingInMemory ? 'in-memory storage' : 'MongoDB'} for data persistence`);
     console.log(`Open http://localhost:${PORT} in your browser to view the app`);
   });
 };
@@ -62,16 +49,17 @@ const startServer = () => {
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/notes-app', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000 // 5 seconds timeout
 })
   .then(() => {
     console.log('MongoDB Connected...');
-    isUsingInMemory = false;
+    storage.setInMemoryMode(false);
     startServer();
   })
   .catch(err => {
     console.error('Failed to connect to MongoDB', err);
     console.log('Falling back to in-memory storage...');
-    isUsingInMemory = true;
+    storage.setInMemoryMode(true);
     startServer();
   });
