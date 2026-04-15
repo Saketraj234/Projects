@@ -3,31 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
+    <title>Weather Forecasting</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
+    <div class="background-overlay"></div>
     <div class="container">
-        <div class="search-box">
-            <input type="text" placeholder="Enter your city name" class="search-input">
-            <button class="search-button">Search</button>
+        <div class="header">
+            <h1 class="logo">Weather <span>Forecasting</span></h1>
+            <div class="search-box">
+                <div class="input-wrapper">
+                    <i data-lucide="map-pin" class="search-icon"></i>
+                    <input type="text" placeholder="Search city..." class="search-input">
+                </div>
+                <button class="search-button">
+                    <i data-lucide="search"></i>
+                    <span>Search</span>
+                </button>
+            </div>
         </div>
-        <div class="weather-container">
-            <div class="current-weather">
-                <h2>Current Weather</h2>
-                <div class="weather-info">
-                    <img src="" alt="weather icon" class="weather-icon">
-                    <div class="temperature"></div>
-                    <div class="description"></div>
-                    <div class="city-name"></div>
+
+        <div class="weather-content" style="opacity: 0; transform: translateY(30px); pointer-events: none;">
+            <div class="main-card">
+                <div class="current-weather">
+                    <div class="location-info">
+                        <div class="city-name"></div>
+                        <div class="date"></div>
+                    </div>
+                    <div class="temp-main">
+                        <div class="weather-visual">
+                            <img src="" alt="weather icon" class="weather-icon">
+                            <div class="glow-effect"></div>
+                        </div>
+                        <div class="temp-details">
+                            <div class="temperature"></div>
+                            <div class="description"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="droplets"></i></div>
+                        <div class="label">Humidity</div>
+                        <div class="value humidity">--%</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="wind"></i></div>
+                        <div class="label">Wind Speed</div>
+                        <div class="value wind-speed">-- km/h</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="gauge"></i></div>
+                        <div class="label">Pressure</div>
+                        <div class="value pressure">-- hPa</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="thermometer"></i></div>
+                        <div class="label">Feels Like</div>
+                        <div class="value feels-like">--°C</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="sunrise"></i></div>
+                        <div class="label">Sunrise</div>
+                        <div class="value sunrise">--:--</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="sunset"></i></div>
+                        <div class="label">Sunset</div>
+                        <div class="value sunset">--:--</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="eye"></i></div>
+                        <div class="label">Visibility</div>
+                        <div class="value visibility">-- km</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-bg"><i data-lucide="cloud"></i></div>
+                        <div class="label">Cloudiness</div>
+                        <div class="value cloudiness">--%</div>
+                    </div>
                 </div>
             </div>
-            <div class="forecast">
-                <h2>5-Day Forecast</h2>
+
+            <div class="forecast-section">
+                <h3>Upcoming Forecast</h3>
                 <div class="forecast-container"></div>
             </div>
         </div>
+
+        <div class="loader-container" style="display: none;">
+            <div class="loader-ring"></div>
+            <p>Scanning the atmosphere...</p>
+        </div>
+
+        <div class="error-toast" style="display: none;">
+            <i data-lucide="alert-circle"></i>
+            <p>City not found. Try again!</p>
+        </div>
+
+        <footer class="app-footer">
+            <p>Developed with <i data-lucide="heart" class="heart-icon"></i> by <span class="developer-name">Saket Raj</span></p>
+        </footer>
     </div>
     <script src="index.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
